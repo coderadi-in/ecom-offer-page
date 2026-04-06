@@ -1,0 +1,180 @@
+/* ================================================== */
+/* KEYFRAMES */
+/* ================================================== */
+
+@keyframes loaderAnimation {
+    0%, 100% { stroke-dashoffset: 500; }
+    50% { stroke-dashoffset: 0; }
+}
+
+/* ================================================== */
+/* LOADER */
+/* ================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    transition:
+        opacity 0.5s ease-in-out,
+        visibility 0.5s ease-in-out;
+}
+
+.loader svg path {
+    fill: transparent;
+    stroke: var(--color-text-main);
+    stroke-width: 2px;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: loaderAnimation 4s ease-in-out;
+}
+
+/* ================================================== */
+/* HEADER */
+/* ================================================== */
+
+.header .section { border-bottom: 1px solid var(--color-border); }
+.header .link:first-child { transition: color 0.3s; }
+.header .link:hover { color: var(--color-text-alt); }
+
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero .head .h1 p { font-size: min(128px, 14vw); }
+.hero .head .para {
+    max-width: 768px;
+    text-wrap: balance;
+}
+
+.hero .benefits { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+.hero .benefits .benefit { border: 1px solid var(--color-border); }
+
+.hero .image-content { overflow: hidden; }
+.hero .image-content:hover .img { transform: scale(1.05); }
+
+.hero .image-content .img {
+    transition: transform 0.3s ease-in-out;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+}
+
+/* ================================================== */
+/* PROBLEMS */
+/* ================================================== */
+
+.problems .head .divider { width: 20vw; }
+.problems .body { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+
+/* ================================================== */
+/* SOLUTION */
+/* ================================================== */
+
+.solution .grid { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+.solution .text-content .para {
+    max-width: 540px;
+    text-wrap: balance;
+}
+
+.solution .image-wrap {
+    max-width: 448px;
+    margin: 0 auto;
+}
+
+.solution .image-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.solution .image-content .img { transition: transform 0.3s ease-in-out; }
+.solution .image-content .content {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--color-surface-alt);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+.solution .image-content:hover .img { transform: scale(1.05); }
+.solution .image-content:hover .content { transform: translateY(-10px) rotate(-5deg); }
+
+/* ================================================== */
+/* PROCESS */
+/* ================================================== */
+
+.process .body { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+
+.process .step .index {
+    padding: 20px;
+    border-radius: 50%;
+    background-color: var(--color-text-main);
+    color: var(--color-bg-main);
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    font-family: "Inter";
+    font-weight: 500;
+}
+
+.process .step .para {
+    max-width: 500px;
+    text-wrap: balance;
+}
+
+/* ================================================== */
+/* DEMO */
+/* ================================================== */
+
+.demo .image-content { overflow: hidden; }
+.demo .image-content:nth-child(even) { margin-top: 24px; }
+.demo .image-content:nth-child(odd) { margin-bottom: 24px; }
+
+.demo .image-content .img { transition: transform 0.3s ease-in-out; }
+.demo .image-content:hover .img { transform: scale(1.05); }
+
+/* ================================================== */
+/* CTA */
+/* ================================================== */
+
+.cta .body { grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+.cta .features { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+
+.cta .offer-content {
+    position: relative;
+    background-color: var(--color-surface-alt);
+    border: 2px solid var(--color-accent-alt);
+}
+
+.cta .offer-content::after {
+    content: 'Q2 opening offer';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 12px 0 12px;
+    padding: 12px;
+    background-color: var(--color-accent-alt);
+}
+
+.cta .offer-content #oldPrice { text-decoration: line-through; }
+
+/* ================================================== */
+/* FOOTER */
+/* ================================================== */
+
+.footer .section { border-top: 1px solid var(--color-border); }
+.footer .link { transition: color 0.3s; }
+.footer .link:hover { color: var(--color-text-alt); }
+
+.footer .list li:not(:last-child) .link {
+    padding-right: 8px;
+    border-right: 1px solid var(--color-border);
+}
+
+/* ================================================== */
+/* & RESPONSIVENESS */
+/* ================================================== */
+
+@media (max-width: 768px) {
+    .hero .image-content .img { aspect-ratio: 16 / 9; }    
+}
